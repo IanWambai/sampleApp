@@ -6,11 +6,13 @@ gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
 group :development do
   gem 'sqlite3'
+  gem 'autotest'
   gem 'rspec-rails'
 end
 
 group :test do
 	gem 'rspec-rails'
+	gem 'spork-rails'
 end
 
 group :production do
