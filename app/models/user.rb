@@ -8,13 +8,15 @@
 #  created_at         :datetime
 #  updated_at         :datetime
 #  encrypted_password :string(255)
+#  salt               :string(255)
+#  password           :string(255)
 #
 
 class User < ActiveRecord::Base
 	attr_accessor :password
 
 	def user_params
-		params.require(:user).permit(:name, :email, :password, :password_confirmation)
+		params.require(:user).permit(:name, :email, :password, :submitted_password)
 	end
 
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -28,6 +30,7 @@ class User < ActiveRecord::Base
 	def has_password?(submitted_password)
 		encrypted_password == encrypt(submitted_password)
 	end
+	
 	class << self
 		def authenticate(email, submitted_password)
 			user = find_by_email(email)
