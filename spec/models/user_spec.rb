@@ -9,10 +9,7 @@
 #  updated_at         :datetime
 #  encrypted_password :string(255)
 #  salt               :string(255)
-<<<<<<< HEAD
 #  password           :string(255)
-=======
->>>>>>> fixDatabaseBug
 #
 
 require 'spec_helper'

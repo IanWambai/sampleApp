@@ -9,11 +9,7 @@
 #  updated_at         :datetime
 #  encrypted_password :string(255)
 #  salt               :string(255)
-<<<<<<< HEAD
-#  password           :string(255)
 #
-=======
->>>>>>> fixDatabaseBug
 
 class User < ActiveRecord::Base
 	attr_accessor :password
@@ -33,21 +29,11 @@ class User < ActiveRecord::Base
 	def has_password?(submitted_password)
 		encrypted_password == encrypt(submitted_password)
 	end
-<<<<<<< HEAD
-	
-	class << self
-		def authenticate(email, submitted_password)
-			user = find_by_email(email)
-			return nil if user.nil?
-			return user if user.has_password?
-		end
-=======
 
 	def self.authenticate(email, submitted_password)
 		user = find_by_email(email)
 		return nil if user.nil?
 		return user if user.has_password?(submitted_password)
->>>>>>> fixDatabaseBug
 	end
 
 	private
