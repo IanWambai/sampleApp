@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20140601015405) do
+=======
+ActiveRecord::Schema.define(version: 20140602093402) do
+>>>>>>> fixDatabaseBug
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -21,7 +25,11 @@ ActiveRecord::Schema.define(version: 20140601015405) do
     t.string   "salt"
     t.string   "password"
     t.string   "encrypted_password"
+<<<<<<< HEAD
 
+=======
+    t.string   "salt"
+>>>>>>> fixDatabaseBug
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
