@@ -9,6 +9,7 @@ group :development do
   gem 'autotest'
   gem 'rspec-rails'
   gem 'annotate'
+  gem 'webrat'
 end
 
 group :test do

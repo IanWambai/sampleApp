@@ -38,6 +38,10 @@ describe "LayoutLinks" do
 		response.should have_selector('title', :content => "Home")
 		click_link "Help"
 		response.should have_selector('title', :content => "Help")
+	end
+
+	it "should have working Home page links" do
+		visit root_path 
 		click_link "Sign up now!"
 		response.should have_selector('title', :content => "Sign up")
 		response.should have_selector('a[href="/"]>img')
