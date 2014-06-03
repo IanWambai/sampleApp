@@ -19,10 +19,27 @@ class UsersController < ApplicationController
   	else 
 	  	@title = "Sign up"
 	  	render 'new'
-	end
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    @title = "Edit profile"
+  end
+
+  def update
+
+    @user = User.find(params[:id])
+
+    if @user.update_attributes(params.require(:user).permit(:name, :email, :password))
+      redirect_to @user, :flash => { :success => "Profile updated" }
+      @title = "Edit profile"
+    else
+      render 'edit'
+    end
   end
 
   def user_params
-  	params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :submitted_password)
   end
 end
