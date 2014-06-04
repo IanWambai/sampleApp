@@ -10,6 +10,7 @@ group :development do
   gem 'rspec-rails'
   gem 'annotate'
   gem 'webrat'
+  gem 'faker'
 end
 
 group :test do
@@ -22,6 +23,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+#Paginates the pages
+gem 'will_paginate'
 # Fixes a bug I can't remember
 gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'

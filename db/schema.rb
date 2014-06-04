@@ -27,4 +27,5 @@ ActiveRecord::Schema.define(version: 20140602093402) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
 
+ end
 end
