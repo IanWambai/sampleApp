@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
-  before_filter :authenticate, :only => [:index, :edit, :update]
+  before_filter :authenticate, :only => [:index, :edit, :update, :destroy]
   before_filter :correct_user, :only => [:edit, :update]
+  before_filter :admin_user, :only => :destroy
+
 
   def index
     @users = User.paginate(:page => params[:page])
@@ -32,13 +34,11 @@ class UsersController < ApplicationController
 
   def edit
 
-    @user = User.find(params[:id])
     @title = "Edit profile"
   end
 
   def update
 
-    @user = User.find(params[:id])
     @title = "Edit profile"
 
     if @user.update_attributes(params.require(:user).permit(:name, :email, :password))
@@ -46,6 +46,11 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to users_path, :flash => {:success => "The user has been completely destroyed. Forever. And ever."}
   end
 
   def user_params
@@ -61,5 +66,10 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to root_path unless current_user?(@user)
+    end
+
+    def admin_user
+      user = User.find(params[:id])
+      redirect_to(root_path) if !current_user.admin? || current_user?(user)
     end
 end
