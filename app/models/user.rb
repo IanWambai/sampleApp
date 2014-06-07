@@ -13,6 +13,9 @@
 #
 
 class User < ActiveRecord::Base
+
+	has_many :microposts,  :dependent => :destroy
+
 	attr_accessor :password
 
 	def user_params
