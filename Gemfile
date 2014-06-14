@@ -7,7 +7,7 @@ gem 'rails', '4.1.1'
 group :development do
   gem 'sqlite3'
   gem 'autotest'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '2.14.2'
   gem 'annotate'
   gem 'webrat'
   gem 'faker'
@@ -28,7 +28,7 @@ gem 'will_paginate'
 # Fixes a bug I can't remember
 gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
-#Get Gravatar
+#Get Gravatars
 gem 'gravatar_image_tag'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
